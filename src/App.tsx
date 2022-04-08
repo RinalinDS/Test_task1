@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box } from "@mui/material";
+import { grey } from "@mui/material/colors";
+import { styled, ThemeProvider } from "@mui/material/styles";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import ShoppingCart from "./modules/shopping-cart/components/ShoppingCart";
+
+import theme from "./theme";
+
+const Background = styled(Box)(() => ({
+  backgroundColor: grey[200],
+  height: "calc(100vh - 118px)",
+  paddingTop: 100
+}));
+
+export default function App() {
+    return (
+        <ThemeProvider theme={theme}>
+            <Background>
+                <ShoppingCart/>
+            </Background>
+        </ThemeProvider>
+    );
 }
-
-export default App;
